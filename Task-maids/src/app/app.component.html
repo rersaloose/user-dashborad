@@ -1,0 +1,25 @@
+<div class="container-fluid navbar-light bg-light">
+  <div class="container">
+    <nav>
+      <mat-toolbar>
+        <div class="row col-12">
+          <div class="logo col-4">
+            <p class="app-title">Users</p>
+          </div>
+
+          <div class="input col-8 "  style="display: flex;
+          align-items: center;
+          justify-content: end;">
+            <input
+              matInput
+              placeholder="Search by ID"
+              [(ngModel)]="searchQuery"
+              (ngModelChange)="onSearchChange($event)"
+            />
+          </div>
+        </div>
+      </mat-toolbar>
+    </nav>
+  </div>
+</div>
+<router-outlet></router-outlet>

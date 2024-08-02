@@ -1,0 +1,26 @@
+
+<div class="userDetails" id="testimonials">
+
+  <div class="container">
+    <div class="box">
+      <img [src]="user?.avatar" alt="" />
+      <h3>{{ user?.first_name }} {{ user?.last_name }}</h3>
+      <span class="title">    <p >{{ user?.email }}</p></span>
+      <div class="rate">
+        <i class="filled fa fas fa-star"></i>
+        <i class="filled fa fas fa-star"></i>
+        <i class="filled fa fas fa-star"></i>
+        <i class="filled fa fas fa-star"></i>
+        <i class="far fa fa-star"></i>
+      </div>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit in
+        quisquam, voluptatibus doloribus, fuga quam reprehenderit,
+      </p>
+      <a (click)="goBack()"> Back</a>
+    </div>
+
+</div>
+
+
+
