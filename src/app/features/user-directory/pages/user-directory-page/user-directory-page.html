@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <header class="mb-4">
+        <h1 class="h2 fw-bold text-dark mb-1">Users Directory Dashboard</h1>
+        <p class="text-muted">Managed with Feature-Based Structure, Signals, and Clean DTO Mapping.</p>
+      </header>
+
+      <app-user-filter />
+
+      <div class="row g-4">
+     
+  
+            <app-user-card [users]="filteredUsers()" />
+      
+    
+      </div>
+    </div>

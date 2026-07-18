@@ -1,0 +1,134 @@
+<!-- <div class="card border-0 shadow-sm">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light text-secondary text-uppercase fs-7">
+            <tr>
+              <th scope="col" class="ps-4">Full Name</th>
+              <th scope="col">Email</th>
+          
+              <th scope="col">Addresses</th>
+              <th scope="col">Phone Numbers</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (user of users(); track user.id) {
+              <tr>
+            
+                <td class="ps-4fw-medium text-dark">
+                  {{ user.firstName }} {{ user.lastName }}
+                </td>
+                
+       
+                <td>{{ user.email }}</td>
+    
+                
+                <td>
+                  @if (user.addresses.length > 0) {
+                    <ul class="list-unstyled mb-0 style-scroll" style="max-height: 80px; overflow-y: auto; font-size: 0.85rem;">
+                      @for (addr of user.addresses; track $index) {
+                        <li class="text-muted mb-1">
+                          📍 {{ addr.street }}, {{ addr.city }} (<strong>{{ addr.country }}</strong>)
+                        </li>
+                      }
+                    </ul>
+                  } @else {
+                    <span class="text-danger fs-8 italic">⚠️ No addresses registered</span>
+                  }
+                </td>
+                
+                <td>
+                  @if (user.phones.length > 0) {
+                    <div class="d-flex flex-wrap gap-1">
+                      @for (phone of user.phones; track $index) {
+                        <span class="badge bg-light text-secondary border fs-8">
+                          {{ phone.type }}: {{ phone.number }}
+                        </span>
+                      }
+                    </div>
+                  } @else {
+                    <span class="text-muted fs-8 italic">No phone lines</span>
+                  }
+                </td>
+              </tr>
+            } @empty {
+              <tr>
+                <td colspan="5" class="text-center py-5 text-muted">
+                  <p class="mb-0 fs-5 fw-semibold">No data found</p>
+                  <small>Try adjusting your search filters.</small>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+    <div class="creative-table-container">
+  <!-- رأس الجدول (Header) -->
+  <div class="table-header-grid">
+    <div class="ps-4">User Profile</div>
+  
+    <div>Contact Lines</div>
+    <div>Registered Addresses</div>
+  </div>
+  
+ 
+  <div class="table-body-rows">
+    @for (user of users(); track user.id) {
+      <div class="creative-row-card">
+
+        <div class="ps-4 d-flex align-items-center">
+          <div class="avatar-glow me-3">
+            <div class="avatar-inner">
+              {{ user.firstName[0] }}{{ user.lastName[0] }}
+            </div>
+          </div>
+          <div>
+            <h6 class="user-name mb-0">{{ user.firstName }} {{ user.lastName }}</h6>
+            <span class="user-email text-muted">{{ user.email }}</span>
+          </div>
+        </div>
+
+ 
+
+        <div class="d-flex align-items-center">
+          @if (user.phones.length > 0) {
+            <div class="phone-chips-container">
+              @for (phone of user.phones; track $index) {
+                <span class="phone-chip">
+                  <span class="chip-type">{{ phone.type }}</span>
+                  <span class="chip-number">{{ phone.number }}</span>
+                </span>
+              }
+            </div>
+          } @else {
+            <span class="empty-text">No active lines</span>
+          }
+        </div>
+
+    
+        <div class="d-flex align-items-center">
+          @if (user.addresses.length > 0) {
+            <div class="address-scroll-box">
+              @for (addr of user.addresses; track $index) {
+                <div class="address-item">
+                  <span class="address-icon">📍</span>
+                  <p class="address-text mb-0">
+                    {{ addr.street }}, {{ addr.city }}, <strong class="country-tag">{{ addr.country }}</strong>
+                  </p>
+                </div>
+              }
+            </div>
+          } @else {
+            <span class="empty-text text-danger">⚠️ No addresses mapped</span>
+          }
+        </div>
+      </div>
+    } @empty {
+      <div class="text-center py-5">
+        <span class="empty-icon fs-1">🔍</span>
+        <h5 class="mt-2">No Explorers Found</h5>
+        <p class="text-muted">We couldn't find any user matching your current filter.</p>
+      </div>
+    }
+  </div>
+</div>
